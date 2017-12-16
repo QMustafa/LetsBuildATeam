@@ -1,0 +1,37 @@
+<div class="form-group">
+
+<h4>Events :</h4>
+
+<ul>
+    <li *ngFor="let question of questions">
+        <span style="color:aqua;">Event: </span> <span>{{ question.description }}</span>
+        <table>
+            <tr>
+                <th>Personality</th>
+                <th>Impact Type</th>
+                <th>Impact Points</th>
+                <th>Reason</th>
+                <th>Your Result</th>
+            </tr>
+            <tr *ngFor="let event of question.eventRoles">
+                
+                <td><h5>{{event.role.name}}</h5><img width="60px" height="60px" src="../assets/images/{{event.role.id}}.png" /></td>
+                <td>{{event.type}}</td>
+                <td>{{event.impact}}</td>
+                <td>{{event.reason}}</td>
+                <td >{{pers.indexOf(event.role.roleType) !== -1 ? event.impact : 0}}</td>
+            </tr>
+        </table>
+    </li>
+</ul> 
+
+<br><br>
+
+<h2>Result :</h2> 
+<span>
+      <h2>{{getSum()}}</h2>
+</span>
+
+<input type="Button" name="" ng-model="gameName" class="btn play-button btn-success" (click)="ShowNext()" value="Next">
+
+</div>

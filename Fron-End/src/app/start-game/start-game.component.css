@@ -1,0 +1,17 @@
+.play-button
+{
+    width: 8%;
+    height: 40px;
+    font-size: 24px;
+}
+.player-name
+{
+    margin: 0 auto;
+    width: 18%;
+}
+.main-input-span
+{
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}

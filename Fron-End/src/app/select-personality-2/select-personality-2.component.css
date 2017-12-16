@@ -1,0 +1,21 @@
+h4{
+    color: #93e893;
+}
+.left
+{
+    text-align: left;
+    padding-left: 10%;
+}
+span
+{
+    color: white;
+    font-size: 30px;
+}
+img{
+    margin: 10px;
+}
+.play-button
+{
+    width: 80%;
+    font-size: 22px;
+}

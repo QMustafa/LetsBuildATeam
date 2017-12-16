@@ -1,0 +1,37 @@
+<br>
+<h4>Please Select 2 Personitlies : </h4>
+<br>
+<div role="main" class="container form-group" size="100%">
+   <div class="row row-offcanvas-right">
+      <div class="col-md-12">
+          <div class="well">
+              <h1>Hello :)</h1>
+              <h1> Choose Your Team Members:</h1>
+          </div>        
+
+       <div class="row">
+         <div class="col-lg-6 col-md-offset-3 left">
+           <div><input type="checkbox" class="two-checkbox" id="SH" [(ngModel)]="reqObject.SH" (click)="checkChanged('SH')" value ="SH" /><img height="80px" width="80px" src="../assets/images/team.png" /><span>Shaper</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="RI" [(ngModel)]="reqObject.RI" (click)="checkChanged('RI')" value="RI" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Resource Investigator</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="SP" [(ngModel)]="reqObject.SP" (click)="checkChanged('SP')" value="SP" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Specialist</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="IMP" [(ngModel)]="reqObject.IMP" (click)="checkChanged('IMP')"  value="IMP" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Implementer</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="TW" [(ngModel)]="reqObject.TW" (click)="checkChanged('TW')" value="TW" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Team Worker</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="CF" [(ngModel)]="reqObject.CF" (click)="checkChanged('CF')" value="CF" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Completer Finisher</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="CO" [(ngModel)]="reqObject.CO" (click)="checkChanged('CO')" value="CO" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Coordinator</span></div>
+           <div> <input type="checkbox" class="two-checkbox" id="PL" [(ngModel)]="reqObject.PL" (click)="checkChanged('PL')" value="PL" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Plant</span></div>
+           <div><input type="checkbox" class="two-checkbox" id="ME" [(ngModel)]="reqObject.ME" (click)="checkChanged('ME')" value="ME" /><img height="80px" width="80px" src="../assets/images/team.png"  /><span>Monitor Evaluator</span></div>
+            
+            
+            
+            
+            
+            
+           <input type="Button" name="" class="play-button btn btn-success" ng-model="gameName" (click)="ShowEvents()" value="Next">
+           
+            
+
+ </div>
+</div>
+
+        </div>  
+ </div>
