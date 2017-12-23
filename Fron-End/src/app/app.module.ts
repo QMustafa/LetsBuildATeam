@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectPersonality2Component } from './select-personality-2/select-personality-2.component';
 import { InstructionComponent } from './instruction/instruction.component';
+import { GaugeModule } from 'angular-gauge';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { InstructionComponent } from './instruction/instruction.component';
   ],
   imports: [
     BrowserModule,
+    GaugeModule.forRoot(),
     HttpModule,
     FormsModule,
     ReactiveFormsModule,

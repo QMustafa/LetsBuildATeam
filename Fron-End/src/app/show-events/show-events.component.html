@@ -22,7 +22,11 @@
             
             <div class="effect">{{ event.correlation_impact != 0 ? event.correlation_impact : event.impact }}</div>
         </div>
-        <div class="effect">{{getQuestionSum(question)}}</div>
+        <div class="meter">
+                <mwl-gauge class="five" size="50" type="semi" thick="10" min="0" max="100" value="{{getQuestionSum(question)}}" cap="round" label="Total:"  append="Points"></mwl-gauge>
+        </div>
+        
+
         <div>
             <div class="evalu-head">Evaluation</div>
             <div class="evalue-text">

@@ -6,6 +6,7 @@ import { equal } from 'assert';
 import { retry } from 'rxjs/operators/retry';
 import { element } from 'protractor';
 import { concat } from 'rxjs/observable/concat';
+import { GaugeModule } from 'angular-gauge';
 
 
 @Component({
@@ -15,13 +16,14 @@ import { concat } from 'rxjs/observable/concat';
 })
 export class ShowEventsComponent implements OnInit {
 
+
   gameId :"";
   page : string;
   pers : ["", ""];
   total: number;
   quesNum: number;
   tempTotal : number;
-  constructor(private http: Http, private rout : Router ) { 
+  constructor(private http: Http, private rout : Router, private gaugeModule : GaugeModule ) { 
     const snapshot: RouterStateSnapshot = rout.routerState.snapshot;
     this.gameId = snapshot.root.queryParams["gameId"];  // <-- hope it helps
     this.page = snapshot.root.queryParams["page"];
