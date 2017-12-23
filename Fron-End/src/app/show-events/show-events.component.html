@@ -19,7 +19,7 @@
             <img height="116px" width="80px" *ngIf="event.type == 'NEUTRAL';" src="../assets/images/Personalities/gray/{{event.role.roleType}}.png" />
             <div class="per-name">{{event.role.name}}</div>
             <div class="per-name">{{event.type}}</div>
-            <div class="effect">{{event.impact}}</div>
+            <div class="effect">{{event.correlation_impact == null ? event.impact : event.correlation_impact}}</div>
             
         </div>
         <meter  min="0" max="100" value="{{getQuestionSum(question)}}" low="30" high="70" optimum="80"></meter>
