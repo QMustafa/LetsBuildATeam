@@ -21,6 +21,11 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
     this.getGrade();
   }
+  Start()
+  {
+        this.rout.navigate(['/home']);
+
+  }
   getGrade()
 {
   if(this.total >= 80)
