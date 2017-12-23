@@ -32,3 +32,100 @@ td:last-child
 {
     font-weight:bold; font-size: 20px;
 }
+.red
+{
+    color: red;
+}
+.green
+{
+    color: green;
+}
+.white
+{
+    color: white;
+}
+meter{
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    height: 40px;
+}
+.parent-div
+{
+    display: inline-block;
+    background-color: gray;
+    width: 70%;
+    margin-top: 72px;
+}
+.task-num{
+    width: 160px;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin: 60px;
+    background-color: #afa6a6;
+    border-radius: 5px;
+}
+.desc
+{
+    width: 80%;
+    font-size: 21px;
+    color: white;
+    margin: 60px;
+    background-color: #afa6a6;
+    border-radius: 5px;
+    text-align: left;
+    padding: 16px;
+}
+.per-name
+{
+    height: 35px;
+    width: 100%;
+    color: white;
+    background-color: darkgray;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 2px;
+    font-weight: bold;
+}
+.effect
+{
+    height: 35px;
+    width: 100%;
+    color: white;
+    background-color: darkgray;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 2px;
+    font-weight: bold;
+}
+.evalu-head
+{
+    display: inline-block;
+    width: 20%;
+    height: 40px;
+    background-color: #47cc47;
+    float: left;
+    margin-left: 56px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 3px;
+}
+.evalue-text
+{
+    display: inline-block;
+    width: 54%;
+    background-color: #47cc47;
+    float: left;
+    margin-left: 56px;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+}
+meter{
+    width: 40%;
+}

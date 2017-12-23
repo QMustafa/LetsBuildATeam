@@ -1,37 +1,42 @@
+
+
+
+
 <div class="form-group">
 
-<h4>Events :</h4>
+<div class="parent-div">
 
-<ul>
-    <li *ngFor="let question of questions">
-        <span style="color:aqua;">Event: </span> <span>{{ question.description }}</span>
-        <table>
-            <tr>
-                <th>Personality</th>
-                <th>Impact Type</th>
-                <th>Impact Points</th>
-                <th>Reason</th>
-                <th>Your Result</th>
-            </tr>
-            <tr *ngFor="let event of question.eventRoles">
-                
-                <td><h5>{{event.role.name}}</h5><img width="60px" height="60px" src="../assets/images/{{event.role.id}}.png" /></td>
-                <td>{{event.type}}</td>
-                <td>{{event.impact}}</td>
-                <td>{{event.reason}}</td>
-                <td >{{pers.indexOf(event.role.roleType) !== -1 ? event.impact : 0}}</td>
-            </tr>
-        </table>
-    </li>
-</ul> 
+    
+<div *ngFor="let question of questions; let i=index">
+    <div *ngIf="i == this.quesNum;">
+        <div style="">
+        <div class="task-num"> Task {{i+ (this.page === "1" ? 1 : 4)}}</div>
+        <div class="desc">{{question.description}}</div>
+        <div style="display:inline-block; margin:32px; width:18%;" *ngFor="let event of question.eventRoles">
+            <img height="116px" width="80px" *ngIf="event.type == 'LACK';" src="../assets/images/Personalities/blue/{{event.role.roleType}}.png" />
+            <img height="116px" width="80px" *ngIf="event.type == 'HAVE'&& event.impact < 0;" src="../assets/images/Personalities/red/{{event.role.roleType}}.png" />
+            <img height="116px" width="80px" *ngIf="event.type == 'HAVE' && event.impact > 0;" src="../assets/images/Personalities/green/{{event.role.roleType}}.png" />
+            <img height="116px" width="80px" *ngIf="event.type == 'NEUTRAL';" src="../assets/images/Personalities/gray/{{event.role.roleType}}.png" />
+            <div class="per-name">{{event.role.name}}</div>
+            <div class="per-name">{{event.type}}</div>
+            <div class="effect">{{event.impact}}</div>
+            
+        </div>
+        <meter  min="0" max="100" value="{{getQuestionSum(question)}}" low="30" high="70" optimum="80"></meter>
+        <div>
+            <div class="evalu-head">Evaluation</div>
+            <div class="evalue-text">
+                <p *ngFor="let reason of question.reasons">{{reason}}</p>
+            </div>
+        </div>
+    </div>
 
-<br><br>
+    </div>
+    
+</div>
+    <div style="text-align: right;padding:  41px;"><input type="Button" name="" style="margin-top: 10px;" ng-model="gameName" class="btn play-button btn-success" (click)="ShowNext()" value="Next" /></div>
+</div>
 
-<h2>Result :</h2> 
-<span>
-      <h2>{{getSum()}}</h2>
-</span>
 
-<input type="Button" name="" ng-model="gameName" class="btn play-button btn-success" (click)="ShowNext()" value="Next">
 
 </div>

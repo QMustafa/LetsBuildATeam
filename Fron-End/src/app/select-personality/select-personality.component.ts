@@ -41,7 +41,7 @@ page : any;
      map(res => res.json()))
    .subscribe(resp => 
    
-       this.rout.navigate(['/Events'], { queryParams: { gameId: this.gameId, page: this.page, pers : [firstVariable, secondVariable]}})
+       this.rout.navigate(['/Events'], { queryParams: { gameId: this.gameId, total: 50, page: this.page, pers : [firstVariable, secondVariable]}})
      
    );
  }

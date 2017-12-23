@@ -16,6 +16,18 @@ span
 }
 .play-button
 {
-    width: 80%;
+    width: 20%;
     font-size: 22px;
+    margin-top: 60px;
+}
+.container.form-group
+{
+    width: 72%;
+}
+.col-md-4{
+    text-align: left;
+}
+.row
+{
+    margin: 40px 0px;
 }

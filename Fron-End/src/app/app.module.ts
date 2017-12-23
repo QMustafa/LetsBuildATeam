@@ -39,7 +39,7 @@ import { SelectPersonality2Component } from './select-personality-2/select-perso
   ]), 
   ],
   providers: [AppComponent,StartGameComponent, SelectPersonalityComponent, ShowEventsComponent, ResultComponent, SelectPersonality2Component],
-  bootstrap: [AppComponent,StartGameComponent, SelectPersonalityComponent, ShowEventsComponent, ResultComponent, SelectPersonality2Component]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
   

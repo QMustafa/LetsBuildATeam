@@ -3,6 +3,8 @@ import {Http, RequestOptions, Headers} from '@angular/http';
 import { Router, RouterStateSnapshot } from '@angular/router';
 import {map} from 'rxjs/operators';
 import { equal } from 'assert';
+import { retry } from 'rxjs/operators/retry';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-show-events',
@@ -15,17 +17,22 @@ export class ShowEventsComponent implements OnInit {
   page : string;
   pers : ["", ""];
   total: number;
-
+  quesNum: number;
+  tempTotal : number;
   constructor(private http: Http, private rout : Router ) { 
     const snapshot: RouterStateSnapshot = rout.routerState.snapshot;
     this.gameId = snapshot.root.queryParams["gameId"];  // <-- hope it helps
     this.page = snapshot.root.queryParams["page"];
     this.pers = snapshot.root.queryParams["pers"];
     this.total = snapshot.root.queryParams["total"];
+    this.quesNum = 0;
+    this.tempTotal = 0;
+    console.log(this.quesNum);
+
   }
 
   questions: any;
-
+  Question: any;
   ngOnInit() {
     this.http.get("http://34.238.136.185:8080/team/games/"+this.gameId+"/events?page=0&size=3", this.getOptions())
     .pipe( 
@@ -33,6 +40,7 @@ export class ShowEventsComponent implements OnInit {
     .subscribe(resp => 
       this.questions = resp.data
     );
+    console.log(this.quesNum);
   }
 
   private getOptions() : RequestOptions {
@@ -45,33 +53,38 @@ export class ShowEventsComponent implements OnInit {
   }
 
 
-  getSum() : number {
-    let sum = 0;
-    console.log(this.questions.length);
-    for(let i = 0; i < this.questions.length; i++) {
-      for(let j = 0; j < this.questions[i].eventRoles.length; j++){
-        if(this.pers.indexOf(this.questions[i].eventRoles[j].role.roleType) !== -1)
-          sum += this.questions[i].eventRoles[j].impact;
-      }
-    }
-    console.log("pers :  " + this.pers[0] + ", " + this.pers[1]);
-    return sum;
-  }
+getQuestionSum(questionSelector):number
+{
+  let sum = 0;
+  for(let j = 0; j < questionSelector.eventRoles.length; j++){
+    sum += questionSelector.eventRoles[j].impact;
 
-  ShowNext() {
-    if(this.page  === "2")
+  }
+  this.tempTotal = sum;
+  return sum;
+}
+  ShowNext(index, item)  {
+    this.total = +this.total + +this.tempTotal;
+    this.tempTotal = 0;
+    if(this.total < 20)
     {
-      var first = this.total;
-      var second = this.getSum();
-      var final = +first + +second;
-      console.log(final);
-      this.rout.navigate(['/result'], { queryParams: { gameId: this.gameId, total : final}});
+      this.rout.navigate(['/result'], { queryParams: { gameId: this.gameId, total : this.total}});
+      return;
     }
-    else
+    if(this.quesNum >= 2 && this.page  === "1")
     {
-      this.rout.navigate(['/Personalities2'], { queryParams: { gameId: this.gameId, page : 2, total: this.getSum(),  pers : [this.pers[0], this.pers[1]]}});
+      console.log("1");
+      this.rout.navigate(['/Personalities2'], { queryParams: { gameId: this.gameId, page : 2, total: this.total,  pers : [this.pers[0], this.pers[1]]}});
     }
-    
+    else if(this.quesNum >= 2 && this.page  === "2")
+    {
+      this.rout.navigate(['/result'], { queryParams: { gameId: this.gameId, total : this.total}});
+    }
+    else{
+      console.log("3");
+      this.quesNum = (this.quesNum + 1);
+    }
+        
   }
 
 }
