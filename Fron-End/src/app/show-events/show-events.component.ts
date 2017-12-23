@@ -5,6 +5,8 @@ import {map} from 'rxjs/operators';
 import { equal } from 'assert';
 import { retry } from 'rxjs/operators/retry';
 import { element } from 'protractor';
+import { concat } from 'rxjs/observable/concat';
+
 
 @Component({
   selector: 'app-show-events',
@@ -33,6 +35,7 @@ export class ShowEventsComponent implements OnInit {
 
   questions: any;
   Question: any;
+  flip:boolean;
   ngOnInit() {
     this.http.get("http://34.238.136.185:8080/team/games/"+this.gameId+"/events?page=0&size=3", this.getOptions())
     .pipe( 
@@ -41,6 +44,7 @@ export class ShowEventsComponent implements OnInit {
       this.questions = resp.data
     );
     console.log(this.quesNum);
+    this.flip = true;
   }
 
   private getOptions() : RequestOptions {
@@ -53,15 +57,24 @@ export class ShowEventsComponent implements OnInit {
   }
 
 
-getQuestionSum(questionSelector):number
+getQuestionSum(questionSelector) : number
 {
+  console.log("First enter");
   let sum = 0;
   for(let j = 0; j < questionSelector.eventRoles.length; j++){
-    sum += questionSelector.eventRoles[j].impact;
-
+    if(questionSelector.eventRoles[j].correlation_impact == 0)
+    {
+      sum += questionSelector.eventRoles[j].impact;
+    }
+    else
+    {
+      sum += questionSelector.eventRoles[j].correlation_impact;
+    }
+      
+    
   }
   this.tempTotal = sum;
-  return sum;
+  return (+this.total + +sum);
 }
   ShowNext(index, item)  {
     this.total = +this.total + +this.tempTotal;

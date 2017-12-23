@@ -18,13 +18,12 @@ export class StartGameComponent implements OnInit {
   createNewGame()
   {
     var response;
-    console.log('muhammad issa');
     this.http.post("http://34.238.136.185:8080/team/games", '{"player_name" : "' + this.gameName + '"}', this.getOptions())
     .pipe( 
       map(res => res.json()))
     .subscribe(resp => 
     
-        this.rout.navigate(['/Personalities'], { queryParams: { gameId: resp.id, page : 1}})
+        this.rout.navigate(['/Instructions'], { queryParams: { gameId: resp.id, page : 1}})
       
     );
   

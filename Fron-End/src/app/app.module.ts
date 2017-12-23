@@ -11,6 +11,7 @@ import { SharedComponent } from './shared/shared.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectPersonality2Component } from './select-personality-2/select-personality-2.component';
+import { InstructionComponent } from './instruction/instruction.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SelectPersonality2Component } from './select-personality-2/select-perso
     ShowEventsComponent,
     ResultComponent,
     SharedComponent,
-    SelectPersonality2Component
+    SelectPersonality2Component,
+    InstructionComponent
   ],
   imports: [
     BrowserModule,
@@ -35,10 +37,11 @@ import { SelectPersonality2Component } from './select-personality-2/select-perso
       { path: 'Events', component: ShowEventsComponent },
       { path: 'result', component: ResultComponent },
       { path: 'Personalities2', component: SelectPersonality2Component },
+      {path: 'Instructions', component: InstructionComponent},
       { path: '**', redirectTo: 'home' }
   ]), 
   ],
-  providers: [AppComponent,StartGameComponent, SelectPersonalityComponent, ShowEventsComponent, ResultComponent, SelectPersonality2Component],
+  providers: [AppComponent,StartGameComponent, SelectPersonalityComponent, ShowEventsComponent, ResultComponent, SelectPersonality2Component, InstructionComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
