@@ -31,3 +31,11 @@ span
 {
     margin: 40px 0px;
 }
+.col-md-4  span{
+    font-size: 22 !important;
+}
+.well
+{
+    height: 146px;
+    padding: 0;
+}

@@ -12,18 +12,17 @@
         <div>
         <div class="task-num"> Task {{i+ (this.page === "1" ? 1 : 4)}}</div>
         <div class="desc">{{question.description}}</div>
-        <div style="display:inline-block; margin:32px; width:18%;" *ngFor="let event of question.eventRoles">
+        <div style="display:inline-block; margin:32px; width:20%;" *ngFor="let event of question.eventRoles">
             <img height="116px" width="80px" *ngIf="event.type == 'LACK';" src="../assets/images/Personalities/blue/{{event.role.roleType}}.png" />
-            <img height="116px" width="80px" *ngIf="event.type == 'HAVE'&& c < 0;" src="../assets/images/Personalities/red/{{event.role.roleType}}.png" />
-            <img height="116px" width="80px" *ngIf="event.type == 'HAVE' && event.impact > 0;" src="../assets/images/Personalities/green/{{event.role.roleType}}.png" />
+            <img height="116px" width="80px" *ngIf="event.type == 'HAVE'&& (event.correlation_impact != 0 ? event.correlation_impact : event.impact) < 0;" src="../assets/images/Personalities/red/{{event.role.roleType}}.png" />
+            <img height="116px" width="80px" *ngIf="event.type == 'HAVE' && (event.correlation_impact != 0 ? event.correlation_impact : event.impact) > 0;" src="../assets/images/Personalities/green/{{event.role.roleType}}.png" />
             <img height="116px" width="80px" *ngIf="event.type == 'NEUTRAL';" src="../assets/images/Personalities/gray/{{event.role.roleType}}.png" />
             <div class="per-name">{{event.role.name}}</div>
             <div class="per-name">{{event.type}}</div>
-            
             <div class="effect">{{ event.correlation_impact != 0 ? event.correlation_impact : event.impact }}</div>
         </div>
         <div class="meter">
-                <mwl-gauge class="five" size="50" type="semi" thick="10" min="0" max="100" value="{{getQuestionSum(question)}}" cap="round" label="Total:"  append="Points"></mwl-gauge>
+                <mwl-gauge class="five" size="50" type="semi" thick="10" min="0" max="150" value="{{getQuestionSum(question)}}" cap="round" label="Total:"  append="Points"></mwl-gauge>
         </div>
         
 

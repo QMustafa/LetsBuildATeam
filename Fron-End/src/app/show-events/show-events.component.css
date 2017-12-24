@@ -57,7 +57,7 @@ meter{
     display: inline-block;
     background-color: gray;
     width: 70%;
-    margin-top: 72px;
+    margin-top: 20px;
 }
 .task-num{
     width: 160px;
@@ -86,7 +86,7 @@ meter{
     color: white;
     background-color: darkgray;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 2px;
     font-weight: bold;
 }
