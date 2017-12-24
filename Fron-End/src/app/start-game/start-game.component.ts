@@ -10,13 +10,13 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./start-game.component.css']
 })
 export class StartGameComponent implements OnInit {
-
-  gameName : "";
  
   constructor(private http: Http, private rout : Router  ) { }
-
+  gameName: string;
   createNewGame()
   {
+    console.log(this.gameName);
+    
     var response;
     this.http.post("http://34.238.136.185:8080/team/games", '{"player_name" : "' + this.gameName + '"}', this.getOptions())
     .pipe( 

@@ -4,8 +4,8 @@
   <form>
     <br><br>
     <p class="main-input-span">Player Name</p> <br>
-    <input type="text" name="" class="form-control player-name input-lg" id="PlayerName" placeholder="Enter Your Name">
+    <input type="text" name="gameName" class="form-control player-name input-lg" id="PlayerName" [(ngModel)]="gameName"  placeholder="Enter Your Name">
     <br>
-    <input type="Button" name="" class="btn-primary play-button" ng-model="gameName" (click)="createNewGame()" value="Play!">
+    <input type="Button" class="btn-primary play-button" (click)="createNewGame()" value="Play!">
   </form>
 </div>
