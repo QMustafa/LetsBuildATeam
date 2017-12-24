@@ -78,7 +78,7 @@ getQuestionSum(questionSelector) : number
   this.tempTotal = sum;
   return (+this.total + +sum);
 }
-  ShowNext(index, item)  {
+  ShowNext()  {
     this.total = +this.total + +this.tempTotal;
     this.tempTotal = 0;
     if(this.total < 20)
